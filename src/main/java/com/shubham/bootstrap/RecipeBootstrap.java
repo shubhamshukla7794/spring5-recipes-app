@@ -135,15 +135,21 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "\n" +
                 "Serve the Bihari Aloo Bhujiya along with Pudina Paratha, Punjabi Methi Kadhi Recipe for a wholesome weeknight dinner.");
 
-        alooBhujiyaNotes.setRecipe(alooBhujiyaRecipe);
         alooBhujiyaRecipe.setNotes(alooBhujiyaNotes);
 
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Potatoes",new BigDecimal(2), bigUOM, alooBhujiyaRecipe));
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Turmeric powder (Haldi)",new BigDecimal(0.5), teaspoonUOM, alooBhujiyaRecipe));
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Cumin seeds (Jeera)", new BigDecimal(1), teaspoonUOM, alooBhujiyaRecipe));
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Green Chillies , slit into halves", new BigDecimal(2), smallUOM, alooBhujiyaRecipe));
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Mustard Oil", new BigDecimal(1), tablespoonUOM, alooBhujiyaRecipe));
-        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(2), pinchUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Potatoes",new BigDecimal(2), bigUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Turmeric powder (Haldi)",new BigDecimal(0.5), teaspoonUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Cumin seeds (Jeera)", new BigDecimal(1), teaspoonUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Green Chillies , slit into halves", new BigDecimal(2), smallUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Mustard Oil", new BigDecimal(1), tablespoonUOM, alooBhujiyaRecipe));
+//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(2), pinchUOM, alooBhujiyaRecipe));
+
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Potatoes",new BigDecimal(2), bigUOM));
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Turmeric powder (Haldi)",new BigDecimal(0.5), teaspoonUOM));
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Cumin seeds (Jeera)", new BigDecimal(1), teaspoonUOM));
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Green Chillies , slit into halves", new BigDecimal(2), smallUOM));
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Mustard Oil", new BigDecimal(1), tablespoonUOM));
+        alooBhujiyaRecipe.addIngredient(new Ingredient("Salt", new BigDecimal(2), pinchUOM));
 
         alooBhujiyaRecipe.getCategories().add(bihariCategory);
 
@@ -196,23 +202,39 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "\n" +
                 "Serve Aloo Paratha along with Aam Ka Achaar Recipe or homemade curd or Masala Chaas for your Breakfast .");
 
-        alooParathaNotes.setRecipe(alooParathaRecipe);
+
         alooParathaRecipe.setNotes(alooParathaNotes);
 
-        alooParathaRecipe.getIngredients().add(new Ingredient("Whole Wheat Flour", new BigDecimal(2), cupUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Ghee", new BigDecimal(1), tablespoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Potatoes (Aloo) , boiled and mashed", new BigDecimal(4), bigUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Onions , finely chopped", new BigDecimal(2), bigUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Ginger , finely chopped", new BigDecimal(1), smallUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Green Chillies , finely chopped", new BigDecimal(2), smallUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Turmeric Powder (Haldi)", new BigDecimal(0.5), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Coriander Powder (Dhania)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Cumin Powder (Jeera)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Red Chilli Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Garam Masala Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient("Amchur (Dry Mango Powder)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-        alooParathaRecipe.getIngredients().add(new Ingredient(" Coriander (Dhania) Leaves , finely chopped", new BigDecimal(0.25), cupUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Whole Wheat Flour", new BigDecimal(2), cupUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Ghee", new BigDecimal(1), tablespoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Potatoes (Aloo) , boiled and mashed", new BigDecimal(4), bigUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Onions , finely chopped", new BigDecimal(2), bigUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Ginger , finely chopped", new BigDecimal(1), smallUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Green Chillies , finely chopped", new BigDecimal(2), smallUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Turmeric Powder (Haldi)", new BigDecimal(0.5), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Coriander Powder (Dhania)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Cumin Powder (Jeera)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Red Chilli Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Garam Masala Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient("Amchur (Dry Mango Powder)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
+//        alooParathaRecipe.getIngredients().add(new Ingredient(" Coriander (Dhania) Leaves , finely chopped", new BigDecimal(0.25), cupUOM, alooParathaRecipe));
+
+        alooParathaRecipe.addIngredient(new Ingredient("Whole Wheat Flour", new BigDecimal(2), cupUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Water", new BigDecimal(1), cupUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Ghee", new BigDecimal(1), tablespoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Potatoes (Aloo) , boiled and mashed", new BigDecimal(4), bigUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Onions , finely chopped", new BigDecimal(2), bigUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Ginger , finely chopped", new BigDecimal(1), smallUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Green Chillies , finely chopped", new BigDecimal(2), smallUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Turmeric Powder (Haldi)", new BigDecimal(0.5), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Coriander Powder (Dhania)", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Cumin Powder (Jeera)", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Red Chilli Powder", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Garam Masala Powder", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Amchur (Dry Mango Powder)", new BigDecimal(1), teaspoonUOM));
+        alooParathaRecipe.addIngredient(new Ingredient("Coriander (Dhania) Leaves , finely chopped", new BigDecimal(0.25), cupUOM));
 
         alooParathaRecipe.getCategories().add(punjabiCategory);
 
