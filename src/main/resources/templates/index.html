@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Home</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"
+            th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -17,8 +19,8 @@
         </div>
 
         <table class="table table-bordered table-hover" style="margin-top: 20px">
-            <thead class="thead-inverse">
-            <tr>
+            <thead class="bg-primary">
+            <tr style="color: white">
                 <th>ID</th>
                 <th>Description</th>
             </tr>
