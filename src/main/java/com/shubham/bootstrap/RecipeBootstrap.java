@@ -119,6 +119,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         alooBhujiyaRecipe.setPrepTime(10);
         alooBhujiyaRecipe.setCookTime(20);
         alooBhujiyaRecipe.setDifficulty(Difficulty.EASY);
+        alooBhujiyaRecipe.setServings(2);
+        alooBhujiyaRecipe.setUrl("https://www.archanaskitchen.com/bihari-aloo-ki-bhujiya-recipe");
+        alooBhujiyaRecipe.setSource("Archana's Kitchen");
         alooBhujiyaRecipe.setDirections("1. To begin making the Bihari Aloo Bhujiya Recipe, wash potatoes with water.\n" +
                 "\n" +
                 "2. Cut them into lengthy pieces similar to the one for finger chips. If you don’t prefer to use the skin, peel it and then chop them into pieces\n" +
@@ -168,6 +171,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         alooParathaRecipe.setPrepTime(15);
         alooParathaRecipe.setCookTime(45);
         alooParathaRecipe.setDifficulty(Difficulty.MODERATE);
+        alooParathaRecipe.setServings(4);
+        alooParathaRecipe.setUrl("https://www.archanaskitchen.com/aloo-parathas-spiced-indian-potato-flat-bread");
+        alooParathaRecipe.setSource("Archana's Kitchen");
         alooParathaRecipe.setDirections("1. To begin making the Aloo Paratha Recipe, first we will make the paratha dough. In a large bowl add in 2 cups of whole wheat flour and some salt.\n" +
                 "\n" +
                 "2. Use your fingers and stir in the salt into the flour. Add water a little at a time and knead to make soft, pliable paratha dough. Knead paratha dough for a couple of minutes until the dough is smooth and elastic. Use the fold press and knead motion to make the dough smooth.\n" +
