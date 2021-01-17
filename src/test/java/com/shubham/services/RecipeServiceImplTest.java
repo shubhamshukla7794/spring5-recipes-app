@@ -1,5 +1,7 @@
 package com.shubham.services;
 
+import com.shubham.converters.RecipeCommandToRecipe;
+import com.shubham.converters.RecipeToRecipeCommand;
 import com.shubham.domain.Recipe;
 import com.shubham.repositories.RecipeRepository;
 import org.junit.Before;
@@ -24,10 +26,16 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
     @Before
     public void setUp() throws Exception {
 //        MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
