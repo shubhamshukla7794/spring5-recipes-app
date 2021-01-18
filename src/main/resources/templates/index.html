@@ -22,17 +22,21 @@
                 <th>ID</th>
                 <th>Description</th>
                 <th>View</th>
+                <th>Update</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="recipe : ${recipes}">
                 <td th:text="${recipe.id}">12</td>
                 <td th:text="${recipe.description}">Tasty</td>
-                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/show/' + ${recipe.id}}">View Recipe</a></td>
+                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View Recipe</a></td>
+                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/update' }">Update Recipe</a></td>
             </tr>
             </tbody>
         </table>
     </div>
+    <a href="/recipe/new" class="btn btn-primary">New Recipe</a>
 </div>
+
 </body>
 </html>
