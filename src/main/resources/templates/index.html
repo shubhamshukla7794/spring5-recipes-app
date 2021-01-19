@@ -32,8 +32,8 @@
                 <td th:text="${recipe.id}">12</td>
                 <td th:text="${recipe.description}">Tasty</td>
                 <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Recipe</a></td>
-                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></td>
-                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></td>
+                <td><a href="#" class="btn btn-warning" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></td>
+                <td><a href="#" class="btn btn-danger" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></td>
             </tr>
             </tbody>
         </table>

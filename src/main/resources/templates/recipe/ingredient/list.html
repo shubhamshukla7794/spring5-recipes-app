@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredient List</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"
+          th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+<a href="/" class="btn btn-primary"><i class="bi bi-house-fill"></i> Home</a>
+<div class="container-fluid" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="stacked">
+                <div class="card border-primary mb-3" style="margin-top: 20px">
+                    <div class="card-header bg-primary" style="color: white">
+                        <div class="row">
+                            <div class="col-md-11 ">
+                                <h5>Ingredients</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}">
+                                    <table class="table table-hover ">
+                                        <thead class="thead-inverse">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Description</th>
+                                                <th colspan="3">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="ingredient : ${recipe.ingredients}">
+                                                <td th:text="${ingredient.id}">334</td>
+                                                <td th:text="${ingredient.amount} + ' ' + ${ingredient.unitOfMeasure.description} + ' ' + ${ingredient.description} + '/show'">Tasty Goodnees 3</td>
+                                                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Ingredients</a></td>
+                                                <td><a href="#" class="btn btn-warning" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/update'}"><i class="bi bi-pencil-square"></i> Update Ingredients</a></td>
+                                                <td><a href="#" class="btn btn-danger" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}"><i class="bi bi-trash-fill"></i> Delete Ingredients</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

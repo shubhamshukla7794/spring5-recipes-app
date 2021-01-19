@@ -74,7 +74,7 @@
                                 <h5>URL :</h5>
                             </div>
                             <div class="col-md-4">
-                                <a th:href="${recipe.url}"
+                                <a target="_blank" th:href="${recipe.url}"
                                    th:text="${(recipe.source +
                                    ' - ' + recipe.description)}">http://www.example.com</a>
                             </div>
@@ -84,7 +84,14 @@
 
                 <div class="card border-primary mb-3" style="margin-top: 20px">
                     <div class="card-header bg-primary" style="color: white">
-                        <h5>Ingredients</h5>
+                        <div class="row">
+                            <div class="col-md-11 ">
+                                <h5>Ingredients</h5>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-info" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
