@@ -1,6 +1,8 @@
 package com.shubham.controllers;
 
 import com.shubham.commands.IngredientCommand;
+import com.shubham.commands.RecipeCommand;
+import com.shubham.commands.UnitOfMeasureCommand;
 import com.shubham.services.IngredientService;
 import com.shubham.services.RecipeService;
 import com.shubham.services.UnitOfMeasureService;
@@ -44,6 +46,25 @@ public class IngredientController {
         return "recipe/ingredient/show";
     }
 
+    @GetMapping("/recipe/{recipeId}/ingredient/new")
+    public String newIngredient(@PathVariable String recipeId, Model model){
+
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+        //todo raise exception if null
+
+        //need to return back parent id for hidden form property
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+
+        //init UOM
+        ingredientCommand.setUnitOfMeasure(new UnitOfMeasureCommand());
+        model.addAttribute("uomList", unitOfMeasureService.ListAllUoms());
+
+        return "recipe/ingredient/ingredientform";
+    }
+
+
     @GetMapping("/recipe/{recipeId}/ingredient/{id}/update")
     public String updateRecipeIngredient(@PathVariable String recipeId, @PathVariable String id, Model model){
 
@@ -59,5 +80,14 @@ public class IngredientController {
         log.debug("Saved Recipe Id is - " + savedCommand.getRecipeId());
         log.debug("Saved Ingredient Id- " + savedCommand.getId());
         return "redirect:/recipe/" + savedCommand.getRecipeId() + "/ingredient/" + savedCommand.getId() + "/show";
+    }
+
+    @GetMapping("/recipe/{recipeId}/ingredient/{id}/delete")
+    public String deleteIngredient(@PathVariable String recipeId, @PathVariable String id, Model model){
+
+        log.debug("Deleting Ingredient with id - " + id);
+        ingredientService.deleteById(Long.valueOf(recipeId), Long.valueOf(id));
+
+        return "redirect:/recipe/" + recipeId + "/ingredients";
     }
 }
