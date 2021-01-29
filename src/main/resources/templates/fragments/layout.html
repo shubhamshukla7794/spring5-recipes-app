@@ -8,6 +8,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"
           th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div th:fragment="header">
@@ -27,10 +28,55 @@
 </div>
 
 <div th:fragment="footer">
-    <footer style="background-color: dodgerblue; ">
-        <hr>
-        <p>Shubham Kumar Shukla</p>
-        <hr>
+<!--    <footer style="background-color: dodgerblue; ">-->
+<!--        <hr>-->
+<!--        <p>Shubham Kumar Shukla</p>-->
+<!--        <hr>-->
+<!--    </footer>-->
+    <footer class="mainFooter">
+        <div class="row">
+            <div class="col-md-6">
+                <p>My Recipes App project developed while undergoing an online course Spring Framework 5</p>
+                <p>© 2020, All rights reserved</p>
+            </div>
+            <div class="col-md-6">
+                <h5><i class="bi bi-person-lines-fill"></i> Contact :</h5>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><i class="bi bi-person-square"></i> Name</p>
+                    </div>
+                    <div class="col-md-1"><p>-</p></div>
+                    <div class="col-md-9">
+                        <p>SHUBHAM KUMAR SHUKLA</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><i class="bi bi-envelope-open-fill"></i> Email</p>
+                    </div>
+                    <div class="col-md-1"><p>-</p></div>
+                    <div class="col-md-9">
+                        <a href="mailto:shubhamshukla7794@gmail.com" style="color: white"
+                           onmouseover="this.style.color='#000000'"
+                           onmouseout="this.style.color='#ffffff'">shubhamshukla7794@gmail.com</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><i class="bi bi-github"></i> Github</p>
+                    </div>
+                    <div class="col-md-1"><p>-</p></div>
+                    <div class="col-md-9">
+                        <a href="https://github.com/shubhamshukla7794" target="_blank" style="color: white"
+                           onmouseover="this.style.color='#000000'"
+                           onmouseout="this.style.color='#ffffff'">https://github.com/shubhamshukla7794</a>
+                    </div>
+                </div>
+<!--                <p><i class="bi bi-person-square"></i> Name   :  SHUBHAM KUMAR SHUKLA</p>-->
+<!--                <p><i class="bi bi-envelope-open-fill"></i> Email  :  shubhamshukla7794@gmail.com</p>-->
+<!--                <p><i class="bi bi-github"></i> Github :  https://github.com/shubhamshukla7794</p>-->
+            </div>
+        </div>
     </footer>
 </div>
 
