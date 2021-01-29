@@ -19,8 +19,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <label>Recipe Description:</label>
-                                <input type="text" class="form-control" th:field="*{description}"/>
+                                <label for="desc">Recipe Description:</label>
+                                <input id="desc" type="text" class="form-control" th:field="*{description}"/>
                             </div>
                         </div>
                         <br>
@@ -47,16 +47,16 @@
 
                         <div class="row">
                             <div class="col-md-4 form-group">
-                                <label>Prep Time:</label>
-                                <input type="text" class="form-control" th:field="*{prepTime}"/>
+                                <label for="pT">Prep Time:</label>
+                                <input id="pT" type="text" class="form-control" th:field="*{prepTime}"/>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label>Cook Time:</label>
-                                <input type="text" class="form-control" th:field="*{cookTime}"/>
+                                <label for="cT">Cook Time:</label>
+                                <input id="cT" type="text" class="form-control" th:field="*{cookTime}"/>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label>Difficulty:</label>
-                                <select class="form-control" th:field="*{difficulty}">
+                                <label for="dif">Difficulty:</label>
+                                <select id="dif" class="form-control" th:field="*{difficulty}">
                                     <option th:each="difficultyValue : ${T(com.shubham.domain.Difficulty).values()}"
                                             th:value="${difficultyValue.name()}"
                                             th:text="${difficultyValue.name()}"
@@ -71,16 +71,16 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4  form-group">
-                                <label>Servings:</label>
-                                <input type="text" class="form-control" th:field="*{servings}"/>
+                                <label for="serve">Servings:</label>
+                                <input id="serve" type="text" class="form-control" th:field="*{servings}"/>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label>Source:</label>
-                                <input type="text" class="form-control" th:field="*{source}"/>
+                                <label for="srcs">Source:</label>
+                                <input id="srcs" type="text" class="form-control" th:field="*{source}"/>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label>URL:</label>
-                                <input type="text" class="form-control" th:field="*{url}"/>
+                                <label for="url">URL:</label>
+                                <input id="url" type="text" class="form-control" th:field="*{url}"/>
                             </div>
                         </div>
                     </div>
@@ -115,24 +115,24 @@
 
                 <div class="card border-primary mb-3" style="margin-top: 20px">
                     <div class="card-header bg-primary" style="color: white">
-                        <h5>Directions</h5>
+                        <label for="dir"><h5>Directions</h5></label>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <textarea class="form-control" rows="3" th:field="*{directions}"></textarea></div>
+                                <textarea id="dir" class="form-control" rows="3" th:field="*{directions}"></textarea></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card border-primary mb-3" style="margin-top: 20px; margin-bottom: 20px">
                     <div class="card-header bg-primary" style="color: white">
-                        <h5>Notes</h5>
+                        <label for="notes"><h5>Notes</h5></label>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
+                                <textarea id="notes" class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
                             </div>
                         </div>
                     </div>
