@@ -3,6 +3,7 @@ package com.shubham.services;
 import com.shubham.converters.RecipeCommandToRecipe;
 import com.shubham.converters.RecipeToRecipeCommand;
 import com.shubham.domain.Recipe;
+import com.shubham.exceptions.NotFoundException;
 import com.shubham.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,6 +66,15 @@ public class RecipeServiceImplTest {
         assertNotNull("Null Recipe returned", recipeReturned);
         verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, never()).findAll();
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getRecipeByIdNotFound() throws Exception {
+        Optional<Recipe> recipeOptional = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        Recipe recipeReturned = recipeService.findById(1L);
     }
 
     @Test

@@ -4,6 +4,7 @@ import com.shubham.commands.RecipeCommand;
 import com.shubham.converters.RecipeCommandToRecipe;
 import com.shubham.converters.RecipeToRecipeCommand;
 import com.shubham.domain.Recipe;
+import com.shubham.exceptions.NotFoundException;
 import com.shubham.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,8 @@ public class RecipeServiceImpl implements RecipeService{
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if (!recipeOptional.isPresent()){
-            throw new RuntimeException("Recipe Not Found!!!");
+//            throw new RuntimeException("Recipe Not Found!!!");
+            throw new NotFoundException("Recipe Not Found!!!");
         }
 
         return recipeOptional.get();
