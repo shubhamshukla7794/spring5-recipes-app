@@ -41,6 +41,20 @@ a:hover, a:active {
     border-radius: 20px;
 }
 
+#button-round-lg a{
+    margin-top: 10px;
+    width: 190px;
+    border-radius: 40px;
+}
+
+#error{
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+#error h1{
+    font-size: 200px;
+}
 
 
 

@@ -9,14 +9,17 @@
 <th:block th:insert="fragments/layout::header"></th:block>
 <div class="container-fluid">
     <br>
-    <div class="row">
+    <div class="row" id="error">
         <div class="col-md-6">
             <img src="../static/images/lost-astronaut.gif" th:src="@{/images/lost-astronaut.gif}" class="img-fluid float-left">
         </div>
         <div class="col-md-6">
             <h1>404</h1>
-            <h3>Looks like you are lost in space</h3>
-            <a href="#" th:href="@{/home}" class="btn btn-primary">Go to Home</a>
+            <h2>Looks like you are lost in space.</h2>
+            <h3 th:text="${exception.getMessage()}"></h3>
+            <div class="col-md-6 offset-md-2" id="button-round-lg">
+                <a href="#" th:href="@{/home}" class="btn btn-outline-primary btn-lg">Go to Home</a>
+            </div>
         </div>
     </div>
 </div>
