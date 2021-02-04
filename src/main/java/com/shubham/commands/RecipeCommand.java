@@ -47,4 +47,8 @@ public class RecipeCommand {
     private Difficulty difficulty;
     private NotesCommand notes;
     private Set<CategoryCommand> categories = new HashSet<>();
+
+    public void addCategory(CategoryCommand categoryCommand){
+        this.categories.add(categoryCommand);
+    }
 }

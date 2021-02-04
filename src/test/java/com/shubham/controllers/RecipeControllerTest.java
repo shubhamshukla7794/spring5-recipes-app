@@ -3,6 +3,7 @@ package com.shubham.controllers;
 import com.shubham.commands.RecipeCommand;
 import com.shubham.domain.Recipe;
 import com.shubham.exceptions.NotFoundException;
+import com.shubham.services.CategoryService;
 import com.shubham.services.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,13 +28,15 @@ class RecipeControllerTest {
     @Mock
     RecipeService recipeService;
 
+    CategoryService categoryService;
+
     RecipeController controller;
 
     MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
-        controller = new RecipeController(recipeService);
+        controller = new RecipeController(recipeService, categoryService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller)
                 .setControllerAdvice(new ControllerExceptionHandler())
                 .build();

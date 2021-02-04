@@ -44,7 +44,13 @@
                                 <label>Categories:</label>
                             </div>
                             <div class="col-md-6 form-group">
-                                <div class="radio">
+                                <th:block th:each="category : ${categoryList}">
+                                    <input type="checkbox" name="cats"
+                                            th:checked="${selectedCats ? selectedCats.contains(category.getId()) : false}"
+                                            th:value="${category.getId()}">
+                                    <label th:text="${category.description}"></label>
+                                </th:block>
+                                <div class="radio" th:remove="all">
                                     <label>
                                         <input type="checkbox" value=""/>
                                         Cat 1
