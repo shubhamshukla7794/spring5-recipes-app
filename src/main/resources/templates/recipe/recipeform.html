@@ -46,7 +46,7 @@
                             <div class="col-md-6 form-group">
                                 <th:block th:each="category : ${categoryList}">
                                     <input type="checkbox" name="cats"
-                                            th:checked="${selectedCats ? selectedCats.contains(category.getId()) : false}"
+                                            th:checked="${isSelectedCats ? selectedCats.contains(category.getId()) : false}"
                                             th:value="${category.getId()}">
                                     <label th:text="${category.description}"></label>
                                 </th:block>

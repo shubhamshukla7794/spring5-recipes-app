@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -38,15 +39,26 @@ public class RecipeController {
     public String newRecipe(Model model){
         model.addAttribute("recipe", new RecipeCommand());
         model.addAttribute("categoryList", categoryService.findAll());
-        model.addAttribute("selectedCats", false);
+        model.addAttribute("selectedCats", null);
+        model.addAttribute("isSelectedCats", false);
         return RECIPE_RECIPEFORM_URL;
     }
 
     @GetMapping("/recipe/{id}/update")
     public String updateRecipe(@PathVariable String id, Model model){
+
+        List<Long> selectedCategories =  categoryService.getSelectedCategoriesId(Long.valueOf(id));
+        boolean isSelectedCats;
+        if (!selectedCategories.isEmpty()){
+            isSelectedCats = true;
+        }else {
+            isSelectedCats = false;
+        }
+
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
         model.addAttribute("categoryList", categoryService.findAll());
-        model.addAttribute("selectedCats", categoryService.getSelectedCategoriesId(Long.valueOf(id)));
+        model.addAttribute("selectedCats", selectedCategories);
+        model.addAttribute("isSelectedCats", isSelectedCats);
         return RECIPE_RECIPEFORM_URL;
     }
 
@@ -61,8 +73,10 @@ public class RecipeController {
 
     @PostMapping("recipe")
     public String saveOrUpdate(@Valid @ModelAttribute("recipe") RecipeCommand recipeCommand,
-                               @RequestParam(value = "cats", required = false) int[] cats,
-                               BindingResult bindingResult){
+                               BindingResult bindingResult,
+                               @RequestParam(value = "cats", required = false) int[] cats){
+
+        log.debug("The msg : " + bindingResult.toString());
 
         if (bindingResult.hasErrors()){
             bindingResult.getAllErrors().forEach(objectError -> {

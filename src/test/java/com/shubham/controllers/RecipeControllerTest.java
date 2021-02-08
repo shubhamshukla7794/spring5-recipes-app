@@ -28,6 +28,7 @@ class RecipeControllerTest {
     @Mock
     RecipeService recipeService;
 
+    @Mock
     CategoryService categoryService;
 
     RecipeController controller;
@@ -77,12 +78,12 @@ class RecipeControllerTest {
 
     @Test
     void testGetNewRecipeForm() throws Exception {
-        RecipeCommand command = new RecipeCommand();
 
         mockMvc.perform(MockMvcRequestBuilders.get("/recipe/new"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/recipeform"))
-                .andExpect(model().attributeExists("recipe"));
+                .andExpect(model().attributeExists("recipe"))
+                .andExpect(model().attributeExists("categoryList"));
     }
 
     @Test
