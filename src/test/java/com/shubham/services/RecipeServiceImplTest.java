@@ -2,6 +2,7 @@ package com.shubham.services;
 
 import com.shubham.converters.RecipeCommandToRecipe;
 import com.shubham.converters.RecipeToRecipeCommand;
+import com.shubham.domain.Category;
 import com.shubham.domain.Recipe;
 import com.shubham.exceptions.NotFoundException;
 import com.shubham.repositories.RecipeRepository;
@@ -85,5 +86,50 @@ public class RecipeServiceImplTest {
         recipeService.deleteById(idToDelete);
         //then
         verify(recipeRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void getRecipesByCategoryId() {
+        //given
+        Category cat1 = new Category();
+        Category cat2 = new Category();
+        Category cat3 = new Category();
+
+        cat1.setId(1L);
+        cat2.setId(2L);
+        cat3.setId(3L);
+
+        Set<Category> categories1 = new HashSet<>();
+        Set<Category> categories2 = new HashSet<>();
+        Set<Category> categories3 = new HashSet<>();
+
+        categories1.add(cat1);
+        categories1.add(cat2);
+
+        categories2.add(cat3);
+        categories2.add(cat2);
+
+        categories3.add(cat1);
+
+        Recipe recipe1 = new Recipe();
+        recipe1.setId(1L);
+        recipe1.setCategories(categories1);
+        Recipe recipe2 = new Recipe();
+        recipe2.setId(1L);
+        recipe2.setCategories(categories2);
+        Recipe recipe3 = new Recipe();
+        recipe3.setId(1L);
+        recipe3.setCategories(categories3);
+        Set<Recipe> recipeSet = new HashSet<>();
+        recipeSet.add(recipe1);
+        recipeSet.add(recipe2);
+
+        //given
+        when(recipeRepository.findRecipesByCategoryId(anyLong())).thenReturn(recipeSet);
+
+        //then
+        Set<Recipe> foundRecipes = recipeRepository.findRecipesByCategoryId(2L);
+        verify(recipeRepository, times(1)).findRecipesByCategoryId(anyLong());
+        assertEquals(2, foundRecipes.size());
     }
 }

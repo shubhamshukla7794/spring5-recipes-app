@@ -2,31 +2,26 @@ package com.shubham.controllers;
 
 import com.shubham.services.CategoryService;
 import com.shubham.services.RecipeService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-@Slf4j
 @Controller
-public class IndexController {
+public class CategoryController {
 
     private final RecipeService recipeService;
     private final CategoryService categoryService;
 
-    public IndexController(RecipeService recipeService, CategoryService categoryService) {
+    public CategoryController(RecipeService recipeService, CategoryService categoryService) {
         this.recipeService = recipeService;
         this.categoryService = categoryService;
     }
 
-    @RequestMapping({"","/","/index","/home"})
-    public String getIndexPage(Model model){
-
-        log.debug("Getting Index Page");
-
-        model.addAttribute("recipes", recipeService.getRecipes());
+    @GetMapping("category/{id}/show")
+    public String showRecipesByCategory(@PathVariable String id, Model model){
+        model.addAttribute("recipes", recipeService.findRecipesByCategoryId(Long.valueOf(id)));
         model.addAttribute("categories", categoryService.findAll());
-
         return "index";
     }
 

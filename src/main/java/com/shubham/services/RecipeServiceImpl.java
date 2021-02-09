@@ -72,4 +72,12 @@ public class RecipeServiceImpl implements RecipeService{
     public void deleteById(Long idToDelete) {
         recipeRepository.deleteById(idToDelete);
     }
+
+    @Override
+    public Set<Recipe> findRecipesByCategoryId(Long id) {
+
+        Set<Recipe> recipeSet = new HashSet<>();
+        recipeRepository.findRecipesByCategoryId(id).iterator().forEachRemaining(recipeSet::add);
+        return recipeSet;
+    }
 }

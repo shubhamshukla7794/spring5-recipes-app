@@ -16,18 +16,25 @@
         <div class="card-deck">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" th:each="recipe : ${recipes}" style="margin-top: 20px">
                 <div class="card border-primary">
-                    <img class="card-img-top" src="../../static/images/Food.jpg"
-                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
-                         alt="Card image cap">
+                    <div th:if="${recipe.getImage()== null}">
+                        <img class="card-img-top" src="../../static/images/Food.jpg"
+                             th:src="@{/images/Food.jpg}"
+                             alt="Card image cap">
+                    </div>
+                    <div th:if="${recipe.getImage()!= null}">
+                        <img class="card-img-top" src="../../static/images/Food.jpg"
+                             th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                             alt="Card image cap">
+                    </div>
                     <div class="card-header text-white bg-primary">
                         <h5 class="card-title" th:text="${recipe.description}">Name</h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text" th:text="${#strings.abbreviate(recipe.notes.recipeNotes, 150)}">Sample Text</p>
                         <ul class="list-group list-group-flush" id="button-round">
-                            <li class="list-group-item"><a href="#" class="btn btn-primary btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Recipe</a></li>
-                            <li class="list-group-item"><a href="#" class="btn btn-warning btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></li>
-                            <li class="list-group-item"><a href="#" class="btn btn-danger btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-primary btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-warning btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-danger btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></li>
                         </ul>
                     </div>
                     <div class="card-footer bg-transparent border-primary">
@@ -36,32 +43,16 @@
                 </div>
             </div>
         </div>
-
-<!--        <table class="table table-bordered table-hover" style="margin-top: 20px">-->
-<!--            <thead class="bg-primary">-->
-<!--            <tr style="color: white">-->
-<!--                <th>ID</th>-->
-<!--                <th>Image</th>-->
-<!--                <th>Description</th>-->
-<!--                <th colspan="3">Action</th>-->
-<!--&lt;!&ndash;                <th>Update</th>&ndash;&gt;-->
-<!--&lt;!&ndash;                <th>Delete</th>&ndash;&gt;-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr th:each="recipe : ${recipes}">-->
-<!--                <td th:text="${recipe.id}">12</td>-->
-<!--                <td><img src="../../static/images/Food.jpg"-->
-<!--                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" width="100" height="100"></td>-->
-<!--                <td th:text="${recipe.description}">Tasty</td>-->
-<!--                <td><a href="#" class="btn btn-primary" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Recipe</a></td>-->
-<!--                <td><a href="#" class="btn btn-warning" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></td>-->
-<!--                <td><a href="#" class="btn btn-danger" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-        </table>
     </div>
-<!--    <a href="/recipe/new" class="btn btn-primary"><i class="bi bi-basket"></i> New Recipe</a>-->
+    <div class="row">
+        <ul>
+            <li th:each="category : ${categories}">
+                <a href="#" class="btn btn-outline-primary"
+                   th:href="@{'/category/' + ${category.id} + '/show'}"
+                   th:text="${category.description}"></a>
+            </li>
+        </ul>
+    </div>
 </div>
 <th:block th:insert="fragments/layout::footer"></th:block>
 </body>

@@ -36,8 +36,20 @@
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <img src="../../static/images/Food.jpg"
-                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" width="200" height="200">
+<!--                                <img src="../../static/images/Food.jpg"-->
+<!--                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" width="200" height="200">-->
+                                <div th:if="${recipe.getImage()== null}">
+                                    <img src="../../static/images/Food.jpg"
+                                         th:src="@{/images/Food.jpg}"
+                                         width="200" height="200"
+                                         alt="Card image cap">
+                                </div>
+                                <div th:if="${recipe.getImage()!= null}">
+                                    <img src="../../static/images/Food.jpg"
+                                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                                         width="200" height="200"
+                                         alt="Food">
+                                </div>
                             </div>
                         </div>
                         <br>
