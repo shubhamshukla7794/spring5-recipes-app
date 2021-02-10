@@ -22,7 +22,8 @@ public class CategoryController {
     public String showRecipesByCategory(@PathVariable String id, Model model){
         model.addAttribute("recipes", recipeService.findRecipesByCategoryId(Long.valueOf(id)));
         model.addAttribute("categories", categoryService.findAll());
-        return "index";
+        model.addAttribute("currentCategory", categoryService.findById(Long.valueOf(id)));
+        return "recipe/recipecategory";
     }
 
 }

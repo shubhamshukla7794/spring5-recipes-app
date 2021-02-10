@@ -106,8 +106,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
             throw new RuntimeException("Expected Category Not Found!!!");
         }
 
+        Optional<Category> fastFoodCategoryOptional = categoryRepository.findByDescription("Fast Food");
+        if (!fastFoodCategoryOptional.isPresent()){
+            throw new RuntimeException("Expected Category Not Found!!!");
+        }
+
         Category bihariCategory = bihariCategoryOptional.get();
         Category punjabiCategory = punjabiCategoryOptional.get();
+        Category fastFoodCategory = fastFoodCategoryOptional.get();
 
 
 
@@ -144,13 +150,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "Serve the Bihari Aloo Bhujiya along with Pudina Paratha, Punjabi Methi Kadhi Recipe for a wholesome weeknight dinner.");
 
         alooBhujiyaRecipe.setNotes(alooBhujiyaNotes);
-
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Potatoes",new BigDecimal(2), bigUOM, alooBhujiyaRecipe));
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Turmeric powder (Haldi)",new BigDecimal(0.5), teaspoonUOM, alooBhujiyaRecipe));
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Cumin seeds (Jeera)", new BigDecimal(1), teaspoonUOM, alooBhujiyaRecipe));
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Green Chillies , slit into halves", new BigDecimal(2), smallUOM, alooBhujiyaRecipe));
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Mustard Oil", new BigDecimal(1), tablespoonUOM, alooBhujiyaRecipe));
-//        alooBhujiyaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(2), pinchUOM, alooBhujiyaRecipe));
 
         alooBhujiyaRecipe.addIngredient(new Ingredient("Potatoes",new BigDecimal(2), bigUOM));
         alooBhujiyaRecipe.addIngredient(new Ingredient("Turmeric powder (Haldi)",new BigDecimal(0.5), teaspoonUOM));
@@ -216,21 +215,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         alooParathaRecipe.setNotes(alooParathaNotes);
 
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Whole Wheat Flour", new BigDecimal(2), cupUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Ghee", new BigDecimal(1), tablespoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Potatoes (Aloo) , boiled and mashed", new BigDecimal(4), bigUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Onions , finely chopped", new BigDecimal(2), bigUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Ginger , finely chopped", new BigDecimal(1), smallUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Green Chillies , finely chopped", new BigDecimal(2), smallUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Turmeric Powder (Haldi)", new BigDecimal(0.5), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Coriander Powder (Dhania)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Cumin Powder (Jeera)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Red Chilli Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Garam Masala Powder", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient("Amchur (Dry Mango Powder)", new BigDecimal(1), teaspoonUOM, alooParathaRecipe));
-//        alooParathaRecipe.getIngredients().add(new Ingredient(" Coriander (Dhania) Leaves , finely chopped", new BigDecimal(0.25), cupUOM, alooParathaRecipe));
-
         alooParathaRecipe.addIngredient(new Ingredient("Whole Wheat Flour", new BigDecimal(2), cupUOM));
         alooParathaRecipe.addIngredient(new Ingredient("Water", new BigDecimal(1), cupUOM));
         alooParathaRecipe.addIngredient(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM));
@@ -250,6 +234,77 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         alooParathaRecipe.getCategories().add(punjabiCategory);
 
         recipes.add(alooParathaRecipe);
+
+
+        //---------------- Litti Chokha -----------------
+        Recipe littiChokha = new Recipe();
+        littiChokha.setDescription("Litti Chokha");
+        littiChokha.setPrepTime(45);
+        littiChokha.setCookTime(60);
+        littiChokha.setDifficulty(Difficulty.MODERATE);
+        littiChokha.setServings(4);
+        littiChokha.setUrl("https://www.archanaskitchen.com/traditional-bihari-litti-chokha-recipe");
+        littiChokha.setSource("Archana's Kitchen");
+        littiChokha.setDirections("1. To begin making the Traditional Bihari Litti Chokha Recipe, we will first get all the ingredients ready and keep it by the aside. \n" +
+                "\n" +
+                "2. In a large mixing bowl, sieve flour, salt and baking soda in a large bowl. Add ajwain and ghee and mix everything well until you get coarse crumbs. Add warm water little at a time and knead to make a firm dough and smooth dough. \n" +
+                "\n" +
+                "3. Cover the dough in a wet muslin cloth and keep aside for 20 minutes.\n" +
+                "\n" +
+                "4. While the dough is resting, we will prepare the filling (pitti)\n" +
+                "\n" +
+                "5. In a large mixing bowl, mix sattu, ajwain, kalonji, fennel seeds, mustard oil, grated ginger, garlic, green chilies, coriander, salt and lemon juice. Stir well to combine all the ingredients. Check the salt and spices and adjust to suit your taste. If you find the mixture too dry, add a little water to make a lumpy mix (which is still dry and not completely wet).\n" +
+                "\n" +
+                "6. Keep this pitti mixture aside.\n" +
+                "\n" +
+                "7. The final step is to make the Litti. \n" +
+                "\n" +
+                "8. Place the rested dough on a flat counter and knead again for 5 minutes. \n" +
+                "\n" +
+                "9. Make small lemon sized balls from the dough and roll it like pooris. Hold the poori between your palm and fill 1 large tablespoon of pitti-sattu filling mixture into the dough.\n" +
+                "\n" +
+                "10. Gather the sides of the poori and bring them together on top and seal the ball. Press the ball gently to flatten it.\n" +
+                "\n" +
+                "11. Proceed to make Litti balls the similar way and arrange them on a greased baking sheet. Brush the litti with ghee, so the tops get crisp while baking.\n" +
+                "\n" +
+                "12. Preheat the oven to 180 C. Once the oven is preheated, place place the litti tray on the middle rack and bake the littis till golden in color. Different ovens have different heating times - it an take anywhere between 20 to 30 minutes to bake and turn golden completely.\n" +
+                "\n" +
+                "13. Once baked, remove the Litti from the oven and allow them to cool a bit before serving. \n" +
+                "\n" +
+                "14. Serve the Litti Chokha along with Aloo Choka and Baingan (Choka) Bharta, Yogurt & Pickled Green Chilies for lunch or dinner.");
+
+        Notes littiChokhaNotes = new Notes();
+        littiChokhaNotes.setRecipeNotes("Litti is a snack food found in India's Bihar  and Nepalese state of Madhesh. It consists of wheat and sattu combined along with spiced and stuffed into maida balls and deep fried in ghee or baked in the oven.\n" +
+                "\n" +
+                "It can be eaten with yogurt, baigan bharta, alu bharta, and papad. The litti are traditionally baked over a cow-dung fire, but you can either deep fry the littis or bake it in the oven.\n" +
+                "\n" +
+                "Serve the Litti Chokha along with Aloo Choka and Baingan (Choka) Bharta, Yogurt & Pickled Green Chilies for lunch or dinner.");
+
+
+        littiChokha.setNotes(littiChokhaNotes);
+
+        littiChokha.addIngredient(new Ingredient("Whole Wheat Flour", new BigDecimal(3.5), cupUOM));
+        littiChokha.addIngredient(new Ingredient("Ghee", new BigDecimal(0.75), cupUOM));
+        littiChokha.addIngredient(new Ingredient("Baking Soda", new BigDecimal(0.3), teaspoonUOM));
+        littiChokha.addIngredient(new Ingredient("Curd", new BigDecimal(2), tablespoonUOM));
+        littiChokha.addIngredient(new Ingredient("Ajwain (Carom seeds)", new BigDecimal(1), teaspoonUOM));
+        littiChokha.addIngredient(new Ingredient("Salt", new BigDecimal(1), teaspoonUOM));
+        littiChokha.addIngredient(new Ingredient("Lukewarm Water", new BigDecimal(2), cupUOM));
+        littiChokha.addIngredient(new Ingredient("Roasted Gram Flour (Sattu Ka Atta)", new BigDecimal(1.5), cupUOM));
+        littiChokha.addIngredient(new Ingredient("Ginger , grated", new BigDecimal(1), smallUOM));
+        littiChokha.addIngredient(new Ingredient("Garlic , grated", new BigDecimal(2), smallUOM));
+        littiChokha.addIngredient(new Ingredient("Green Chillies , finely chopped", new BigDecimal(2), smallUOM));
+        littiChokha.addIngredient(new Ingredient("Coriander (Dhania) Leaves", new BigDecimal(1), smallUOM));
+        littiChokha.addIngredient(new Ingredient("Kalonji (Onion Nigella Seeds)", new BigDecimal(0.5), teaspoonUOM));
+        littiChokha.addIngredient(new Ingredient("Fennel seeds (Saunf)", new BigDecimal(0.5), teaspoonUOM));
+        littiChokha.addIngredient(new Ingredient("Mustard oil", new BigDecimal(1), tablespoonUOM));
+        littiChokha.addIngredient(new Ingredient("Lemon juice", new BigDecimal(1), teaspoonUOM));
+
+        littiChokha.getCategories().add(bihariCategory);
+        littiChokha.getCategories().add(fastFoodCategory);
+
+        recipes.add(littiChokha);
+
 
         //-----------------------------------------------  R E T U R N  ----------------------------------------------------
 

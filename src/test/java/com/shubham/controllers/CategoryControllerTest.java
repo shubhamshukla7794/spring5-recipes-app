@@ -85,7 +85,7 @@ class CategoryControllerTest {
         //then
         mockMvc.perform(get("/category/2/show"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("index"))
+                .andExpect(view().name("recipe/recipecategory"))
                 .andExpect(model().attributeExists("recipes"))
                 .andExpect(model().attributeExists("categories"));
 

@@ -20,14 +20,8 @@ a:hover, a:active {
     text-decoration: none;
 }
 
-.card-footer{
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+.card-header h5{
+    font-weight: bold;
 }
 
 .mainFooter {
@@ -56,6 +50,67 @@ a:hover, a:active {
     font-size: 200px;
 }
 
+.carousel .carousel-item {
+    height: 500px;
+}
 
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
 
+.carousel-item h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px #000000;
+}
 
+.carousel-item h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px #000000;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333 linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.categoryList{
+    margin-top: 50px;
+}
+
+.categoryList a{
+    margin-top: 10px;
+    width: 230px;
+    border-radius: 40px;
+    margin-left: 70px;
+}
+
+.image-container{
+    position: relative;
+    height: 500px;
+}
+
+.image-container img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 500px;
+    object-fit:cover;
+}
+
+.image-container h1{
+    position: absolute;
+    display: block;
+    width: 50%;
+    margin-top: 12%;
+    max-width: 710px;
+    font-size: 4vw;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 0 .125em .125em rgba(0, 0, 0, .5);
+    padding: .6em 1em .6em 1.7em;
+}
