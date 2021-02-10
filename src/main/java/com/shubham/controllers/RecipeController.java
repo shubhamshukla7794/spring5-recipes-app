@@ -31,6 +31,8 @@ public class RecipeController {
     public String showById(@PathVariable String id, Model model){
 
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
+        model.addAttribute("newLineChar", '\n');
+        model.addAttribute("categories", categoryService.findAll());
 
         return "recipe/show";
     }

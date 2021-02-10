@@ -48,7 +48,9 @@ public class RecipeServiceImpl implements RecipeService{
             throw new NotFoundException("Recipe Not Found. For the ID value " + id.toString());
         }
 
-        return recipeOptional.get();
+        Recipe foundRecipe = recipeOptional.get();
+
+        return foundRecipe;
     }
 
     @Override

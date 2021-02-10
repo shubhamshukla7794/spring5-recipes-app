@@ -26,9 +26,9 @@
         <h1 th:text="@{${currentCategory.description} + ' Recipes'}">Recipes</h1>
     </div>
 </div>
-<div class="categoryList" style="position: relative">
+<div class="categoryList">
     <div class="col-md-10 offset-md-1">
-        <h5 style="color: #007bff"><i class="bi bi-tags-fill"></i> Explore recipes by category</h5>
+        <h5 style="color: #007bff"><i class="fas fa-tags"></i> Explore recipes by category</h5>
         <span th:each="category : ${categories}">
                 <a href="#" class="btn btn-outline-info"
                    th:href="@{'/category/' + ${category.id} + '/show'}"
@@ -61,9 +61,9 @@
                     <div class="card-body">
                         <p class="card-text" th:text="${#strings.abbreviate(recipe.notes.recipeNotes, 150)}">Sample Text</p>
                         <ul class="list-group list-group-flush" id="button-round">
-                            <li class="list-group-item"><a href="#" class="btn btn-outline-primary btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="bi bi-binoculars-fill"></i> View Recipe</a></li>
-                            <li class="list-group-item"><a href="#" class="btn btn-outline-warning btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="bi bi-pencil-square"></i> Update Recipe</a></li>
-                            <li class="list-group-item"><a href="#" class="btn btn-outline-danger btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="bi bi-trash-fill"></i> Delete Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-primary btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"><i class="fas fa-eye"></i> View Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-warning btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/update' }"><i class="fas fa-edit"></i> Update Recipe</a></li>
+                            <li class="list-group-item"><a href="#" class="btn btn-outline-danger btn-block" th:href="@{'/recipe/' + ${recipe.id} + '/delete' }"><i class="fas fa-trash-alt"></i> Delete Recipe</a></li>
                         </ul>
                     </div>
                 </div>

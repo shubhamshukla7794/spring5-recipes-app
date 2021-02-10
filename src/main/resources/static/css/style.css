@@ -114,3 +114,41 @@ hr {
     text-shadow: 0 .125em .125em rgba(0, 0, 0, .5);
     padding: .6em 1em .6em 1.7em;
 }
+
+#chImage{
+    float: right;
+}
+
+p{
+    text-align: justify;
+    font-size: large;
+}
+
+ul{
+    text-align: justify;
+    font-size: large;
+}
+
+.recipe-image{
+    position: relative;
+    height: 500px;
+}
+
+.recipe-image img{
+    border: 1px solid #9a9a9a;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 500px;
+    object-fit:cover;
+}
+
+#recipe-show h2, h4, h5{
+    font-weight: bold;
+}
+
+.recipe-notes p{
+    margin-top: 50px;
+    font-size: larger;
+}
