@@ -5,6 +5,7 @@ import com.shubham.converters.IngredientCommandToIngredient;
 import com.shubham.converters.IngredientToIngredientCommand;
 import com.shubham.domain.Ingredient;
 import com.shubham.domain.Recipe;
+import com.shubham.exceptions.NotFoundException;
 import com.shubham.repositories.RecipeRepository;
 import com.shubham.repositories.UnitOfMeasureRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -38,8 +39,8 @@ public class IngredientServiceImpl implements IngredientService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
 
         if (!recipeOptional.isPresent()){
-            //todo impl error handling
             log.error("recipe id not found. Id: " + recipeId);
+            throw new NotFoundException("Recipe Not Found. For the ID value " + recipeId.toString());
         }
 
         Recipe recipe = recipeOptional.get();
@@ -49,8 +50,8 @@ public class IngredientServiceImpl implements IngredientService {
                 .map( ingredient -> ingredientToIngredientCommand.convert(ingredient)).findFirst();
 
         if(!ingredientCommandOptional.isPresent()){
-            //todo impl error handling
             log.error("Ingredient id not found: " + ingredientId);
+            throw new NotFoundException("Ingredient Not Found. For the ID value " + ingredientId.toString());
         }
 
         return ingredientCommandOptional.get();
@@ -62,8 +63,6 @@ public class IngredientServiceImpl implements IngredientService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(command.getRecipeId());
 
         if(!recipeOptional.isPresent()){
-
-            //todo toss error if not found!
             log.error("Recipe not found for id: " + command.getRecipeId());
             return new IngredientCommand();
         } else {

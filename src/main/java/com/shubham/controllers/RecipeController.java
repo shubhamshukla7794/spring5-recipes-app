@@ -66,13 +66,6 @@ public class RecipeController {
 
 
 //    @RequestMapping(name = "recipe", method = RequestMethod.POST) -   Old Method but still working
-
-//    @PostMapping("recipe")
-//    public String saveOrUpdate(@ModelAttribute RecipeCommand command){
-//        RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
-//        return "redirect:/recipe/" + savedCommand.getId() +"/show";
-//    }
-
     @PostMapping("recipe")
     public String saveOrUpdate(@Valid @ModelAttribute("recipe") RecipeCommand recipeCommand,
                                BindingResult bindingResult,
@@ -108,22 +101,4 @@ public class RecipeController {
         recipeService.deleteById(Long.valueOf(id));
         return "redirect:/";
     }
-
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @ExceptionHandler(NotFoundException.class)
-//    public ModelAndView handleNotFound(Exception exception){
-//
-//        log.error("Handling not found exception");
-//        log.error(exception.getMessage());
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        modelAndView.setViewName("404error");
-//        modelAndView.addObject("exception", exception);
-//
-//        return modelAndView;
-//    }
-
-
-
 }

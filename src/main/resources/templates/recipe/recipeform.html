@@ -32,7 +32,8 @@
                                 <span class="help-block" th:if="${#fields.hasErrors('description')}">
                                     <ul>
 
-                                        <li th:each="err : ${#fields.errors('description')}" th:text="${#strings.capitalize(err)}"></li>
+                                        <li th:each="err : ${#fields.errors('description')}"
+                                            th:text="${#strings.capitalize(err)}"></li>
                                     </ul>
                                 </span>
                             </div>

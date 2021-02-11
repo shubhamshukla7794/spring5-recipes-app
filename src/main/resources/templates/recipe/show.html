@@ -45,9 +45,9 @@
                         <p><i class="fas fa-globe-asia"></i><strong> URL :</strong></p>
                     </div>
                     <div class="col-md-4">
-                        <a target="_blank" th:href="${recipe.url}"
+                       <p><a target="_blank" th:href="${recipe.url}"
                            th:text="${(recipe.source +
-                                      ' - ' + recipe.description)}">http://www.example.com</a>
+                                      ' - ' + recipe.description)}">http://www.example.com</a></p>
                     </div>
                 </div>
             </div>
@@ -105,157 +105,22 @@
                 </div>
                 <div class="col-md-7">
                     <h4>Directions</h4>
-                    <p class="card-text" style="text-align: justify" th:utext="${#strings.replace(recipe.directions, newLineChar, '&lt;br&gt;')}">Lorem ipsum.</p>
+                    <p class="card-text" style="text-align: justify"
+                       th:utext="${#strings.replace(recipe.directions, newLineChar, '&lt;br&gt;')}">Lorem ipsum.</p>
                 </div>
             </div>
             <hr>
             <div class="categoryList">
                 <div class="col-md-12">
-                    <h5 style="color: #007bff"><i class="fas fa-tags"></i> Explore recipes by category</h5>
+                    <h5><i class="fas fa-tags"></i> Explore recipes by category</h5>
                     <span th:each="category : ${categories}">
-                        <a href="#" class="btn btn-outline-info"
+                        <a href="#" class="btn btn-outline-secondary"
                            th:href="@{'/category/' + ${category.id} + '/show'}"
                            th:text="${category.description}"></a>
                     </span>
 
                 </div>
             </div>
-<!--            <div class="stacked">-->
-<!--                <div class="card border-primary mb-3" style="margin-top: 20px">-->
-<!--                    <div class="card-header bg-primary" style="color: white">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-10">-->
-<!--                                <h5>Details</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-2">-->
-<!--                                <a class="btn btn-info" href="#"-->
-<!--                                   th:href="@{'/recipe/' + ${recipe.id} + '/image'}">Change Image</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-3">-->
-<!--                                <h5 class="card-title">Category</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-3">-->
-<!--                                <ul class="card-text">-->
-<!--                                    <li th:remove="all">Cat one</li>-->
-<!--                                    <li th:remove="all">Cat two</li>-->
-<!--                                    <li th:each="category : ${recipe.categories}" th:text="${category.description}">Cat three</li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-6">-->
-<!--&lt;!&ndash;                                <img src="../../static/images/Food.jpg"&ndash;&gt;-->
-<!--&lt;!&ndash;                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" width="200" height="200">&ndash;&gt;-->
-<!--                                <div th:if="${recipe.getImage()== null}">-->
-<!--                                    <img src="../../static/images/Food.jpg"-->
-<!--                                         th:src="@{/images/Food.jpg}"-->
-<!--                                         width="200" height="200"-->
-<!--                                         alt="Card image cap">-->
-<!--                                </div>-->
-<!--                                <div th:if="${recipe.getImage()!= null}">-->
-<!--                                    <img src="../../static/images/Food.jpg"-->
-<!--                                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"-->
-<!--                                         width="200" height="200"-->
-<!--                                         alt="Food">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <br>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>Prep Time :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <p th:text="${recipe.prepTime} + ' min'">30 min</p>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>Difficulty :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <p th:text="${recipe.difficulty}">Easy</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>Cook Time :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <p th:text="${recipe.cookTime} + ' min'">30 min</p>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>Servings :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <p th:text="${recipe.servings}">4</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>Source :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <p th:text="${recipe.source}">30 min</p>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-2">-->
-<!--                                <h5>URL :</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4">-->
-<!--                                <a target="_blank" th:href="${recipe.url}"-->
-<!--                                   th:text="${(recipe.source +-->
-<!--                                   ' - ' + recipe.description)}">http://www.example.com</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="card border-primary mb-3" style="margin-top: 20px">-->
-<!--                    <div class="card-header bg-primary" style="color: white">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-11 ">-->
-<!--                                <h5>Ingredients</h5>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-1">-->
-<!--                                <a class="btn btn-info" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-12">-->
-<!--                                <ul class="card-text">-->
-<!--                                    <li th:remove="all">1 Cup of milk</li>-->
-<!--                                    <li th:remove="all">1 Teaspoon of chocolate</li>-->
-<!--                                    <li th:each="ingredient : ${recipe.ingredients}"-->
-<!--                                        th:text="${(ingredient.amount +-->
-<!--                                        ' ' + ingredient.uom.description +-->
-<!--                                        ' ' + ingredient.description)}">1 Teaspoon of Sugar</li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="card border-primary mb-3" style="margin-top: 20px">-->
-<!--                    <div class="card-header bg-primary" style="color: white">-->
-<!--                        <h5>Directions</h5>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <p class="card-text" style="text-align: justify" th:text="${recipe.directions}">Lorem ipsum.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="card border-primary mb-3" style="margin-top: 20px; margin-bottom: 20px">-->
-<!--                    <div class="card-header bg-primary" style="color: white">-->
-<!--                        <h5>Notes</h5>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <p class="card-text" style="text-align: justify" th:text="${recipe.notes.recipeNotes}">Lorem ipsum.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--            </div>-->
 
         </div>
     </div>

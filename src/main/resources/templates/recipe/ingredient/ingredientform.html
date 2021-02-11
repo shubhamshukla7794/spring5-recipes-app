@@ -9,7 +9,8 @@
 <div class="container-fluid" style="margin-top: 50px; margin-bottom: 20px;">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <form th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.recipeId} + '/ingredient'}" method="post">
+            <form th:object="${ingredient}"
+                  th:action="@{'/recipe/' + ${ingredient.recipeId} + '/ingredient'}" method="post">
                 <input type="hidden" th:field="*{id}">
                 <div class="card border-primary mb-3" style="margin-top: 20px">
                     <div class="card-header bg-primary" style="color: white">
