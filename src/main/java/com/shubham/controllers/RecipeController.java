@@ -93,6 +93,12 @@ public class RecipeController {
         }
 
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(recipeCommand);
+
+        if (savedCommand.getIngredients().isEmpty() || (savedCommand.getIngredients().isEmpty() && savedCommand.getImage()==null))
+        {
+            return "redirect:/recipe/" + savedCommand.getId() +"/update";
+        }
+
         return "redirect:/recipe/" + savedCommand.getId() +"/show";
     }
 

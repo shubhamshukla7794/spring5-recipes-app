@@ -79,4 +79,5 @@ public class IndexControllerTest {
         assertEquals(2,setInController.size());
         verify(categoryService, times(1)).findAll();
     }
+
 }

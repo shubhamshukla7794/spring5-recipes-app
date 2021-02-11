@@ -9,10 +9,13 @@ import com.shubham.services.UnitOfMeasureService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -50,7 +53,6 @@ public class IngredientController {
     public String newIngredient(@PathVariable String recipeId, Model model){
 
         RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
-        //todo raise exception if null
 
         //need to return back parent id for hidden form property
         IngredientCommand ingredientCommand = new IngredientCommand();
@@ -75,7 +77,21 @@ public class IngredientController {
     }
 
     @PostMapping("/recipe/{recipeId}/ingredient")
-    public String saveOrUpdate(@ModelAttribute IngredientCommand command){
+    public String saveOrUpdate(@Valid @ModelAttribute("ingredient") IngredientCommand command, BindingResult bindingResult){
+
+        log.debug("The msg : " + bindingResult.toString());
+
+        if (bindingResult.hasErrors()){
+            bindingResult.getAllErrors().forEach(objectError -> {
+                log.debug(objectError.toString());
+            });
+            if (command.getId()!=null)
+                return "redirect:/recipe/" + command.getRecipeId()+"/ingredient/" + command.getId() + "/update";
+            else
+                return "redirect:/recipe/" + command.getRecipeId()+"/ingredient/new";
+        }
+
+
         IngredientCommand savedCommand = ingredientService.saveIngredientCommand(command);
         log.debug("Saved Recipe Id is - " + savedCommand.getRecipeId());
         log.debug("Saved Ingredient Id- " + savedCommand.getId());

@@ -13,15 +13,15 @@
 <body>
 <div th:fragment="header">
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-        <a href="#" th:href="@{/home}" class="navbar-brand">My Recipes</a>
+        <a href="#" th:href="@{/}" class="navbar-brand"></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <div class="navbar-nav" style="text-align: right">
+                <a href="#" th:href="@{/}" class="nav-item nav-link active"><i class="fas fa-home"></i> Home</a>
                 <a href="#" th:href="@{/recipe/new}" class="nav-item nav-link"><i class="fas fa-hamburger"></i> New Recipe</a>
-
             </div>
         </div>
     </nav>
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p>My Recipes App project developed while undergoing an online course Spring Framework 5</p>
-                <p>© 2020, All rights reserved</p>
+                <p>© 2020-2021, All rights reserved</p>
             </div>
             <div class="col-md-6">
                 <h5><i class="fas fa-id-card"></i> Contact :</h5>

@@ -9,6 +9,9 @@
 <div class="container-fluid" style="margin-top: 50px">
     <div class="row">
         <div class="col-md-10 offset-md-1">
+            <a class="btn btn-outline-primary" href="#"
+               th:href="@{'/recipe/' + ${recipe.id} + '/show'}" role="button">
+                <i class="fas fa-arrow-left"></i> Back to Show Recipe</a>
             <div class="stacked">
                 <div class="card border-primary mb-3" style="margin-top: 20px">
                     <div class="card-header bg-primary" style="color: white">

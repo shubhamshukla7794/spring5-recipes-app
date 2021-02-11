@@ -4,6 +4,14 @@ body {
     flex-direction: column;
 }
 
+.navbar a.navbar-brand{
+    background: url("../images/MyRecipesLogo.png") center/ contain no-repeat;
+    width: 180px;
+    height: 45px;
+    display: inline-block;
+    text-decoration: none;
+}
+
 .container{
     flex: 1;
 }
