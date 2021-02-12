@@ -59,16 +59,22 @@
                         </div>
 
                         <div class="row" style="margin-top: 30px">
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-4 form-group">
                                 <label>Categories:</label>
                             </div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-8 form-group">
                                 <th:block th:each="category : ${categoryList}">
-                                    <input type="checkbox" name="cats"
-                                            th:checked="${isSelectedCats ? selectedCats.contains(category.getId()) : false}"
-                                            th:value="${category.getId()}">
-                                    <label th:text="${category.description}"></label>
+                                    <ul style="list-style-type:none;">
+                                        <li>
+                                            <input type="checkbox" name="cats"
+                                                    th:checked="${isSelectedCats ?
+                                                                  selectedCats.contains(category.getId()) : false}"
+                                                    th:value="${category.getId()}">
+                                            <label th:text="${category.description}"></label>
+                                        </li>
+                                    </ul>
                                 </th:block>
+
                                 <div class="radio" th:remove="all">
                                     <label>
                                         <input type="checkbox" value=""/>
