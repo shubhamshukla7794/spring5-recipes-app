@@ -15,8 +15,6 @@ java -jar target/*.jar
 ```
 
 You can then access the application here: http://localhost:8080/
-![Home](https://user-images.githubusercontent.com/37581959/107751407-60d8f600-6d43-11eb-9ad4-f8e3922e04f6.png)
-
 
 ## Working with Recipe App in your IDE
 
@@ -34,23 +32,29 @@ and it is possible to inspect the content of the database using the `jdbc:h2:mem
 
 ## Application
 
-**Show Recipe by Category**
-![Category Show](https://user-images.githubusercontent.com/37581959/107751488-7817e380-6d43-11eb-958d-cb313f60a75d.png)
+**Recipe Application**
 
-**View Recipe**
-![Recipe Show](https://user-images.githubusercontent.com/37581959/107751533-85cd6900-6d43-11eb-8b22-840768e9f663.png)
+https://user-images.githubusercontent.com/37581959/168566366-3c31a20b-c6f3-4d97-ac0b-dfdc7a5b945f.mp4
 
-**Recipe Ingredients**
-![Recipe Ingredients](https://user-images.githubusercontent.com/37581959/107751565-9251c180-6d43-11eb-99c2-fb8eaa5fd92a.png)
 
-**Update Recipe**
-![Recipe 1 Update](https://user-images.githubusercontent.com/37581959/107751784-d93fb700-6d43-11eb-80c5-8cacc4dee2f0.png)
 
 **Add a new Recipe**
-![Recipe New](https://user-images.githubusercontent.com/37581959/107751800-e361b580-6d43-11eb-947a-51b3eae2c52e.png)
 
-**New Recipe - add Ingredients and Upload Image **
-![Recipe New Update](https://user-images.githubusercontent.com/37581959/107751873-f7a5b280-6d43-11eb-84ea-207f8b696896.png)
+https://user-images.githubusercontent.com/37581959/168566414-0df2ee96-2d69-44c9-9d80-0538fe0641e2.mp4
+
+
+
+**Update Recipe**
+
+https://user-images.githubusercontent.com/37581959/168566482-27ec7d65-53b0-42ce-bd69-3cf005cd4ff0.mp4
+
+
+
+**Error pages**
+
+https://user-images.githubusercontent.com/37581959/168566550-cf595b52-71be-49cb-92db-4d2f1ab5f411.mp4
+
+
 
 ##  Author
 Project created by :
