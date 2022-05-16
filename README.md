@@ -34,25 +34,25 @@ and it is possible to inspect the content of the database using the `jdbc:h2:mem
 
 **Recipe Application**
 
-https://user-images.githubusercontent.com/37581959/168566366-3c31a20b-c6f3-4d97-ac0b-dfdc7a5b945f.mp4
-
+https://user-images.githubusercontent.com/37581959/168567182-04933c38-9da5-44f0-9492-4ea1ac516c3d.mp4
 
 
 **Add a new Recipe**
 
-https://user-images.githubusercontent.com/37581959/168566414-0df2ee96-2d69-44c9-9d80-0538fe0641e2.mp4
+https://user-images.githubusercontent.com/37581959/168567296-e23c1fcd-ee88-4db3-ac3c-8162eb95ee01.mp4
 
 
 
 **Update Recipe**
 
-https://user-images.githubusercontent.com/37581959/168566482-27ec7d65-53b0-42ce-bd69-3cf005cd4ff0.mp4
+https://user-images.githubusercontent.com/37581959/168567378-9bd887a4-16cb-4163-9a83-2c77364da7a5.mp4
 
 
 
 **Error pages**
 
-https://user-images.githubusercontent.com/37581959/168566550-cf595b52-71be-49cb-92db-4d2f1ab5f411.mp4
+https://user-images.githubusercontent.com/37581959/168567458-e5f03621-5029-418c-9e67-7d4687ea3243.mp4
+
 
 
 
